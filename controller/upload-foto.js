@@ -3,10 +3,9 @@ const multer = require("multer");
 
 const storage = multer.diskStorage({
   destination: (req, res, cb) => {
-    cb(null, "./foto-user");
+    cb(null, "public/foto-user");
   },
   filename: (req, file, cb) => {
-    
     cb(null, `photo-${Date.now()}-${file.originalname}`);
   },
 });
@@ -21,11 +20,11 @@ const upload = multer({
     }
     const fileSize = req.headers[`content-length`];
     const maxSize = 1 * 1024 * 1024;
-    if(fileSize > maxSize){
-        cb(null,false)
-        return cb(`File size is too large`)
+    if (fileSize > maxSize) {
+      cb(null, false)
+      return cb(`File size is too large`)
     }
-    cb(null,true)
+    cb(null, true)
   },
 });
 

@@ -11,14 +11,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.hasOne(models.detail_pemesanan, {
-        
-      })
+      this.hasOne(models.detail_pemesanan, { foreignKey: 'id_pemesanan' });
       
     }
   }
   pemesanan.init({
-    nomor_pemesanan: DataTypes.INTEGER,
+    nomor_pemesanan: DataTypes.STRING,
     nama_pemesan: DataTypes.STRING,
     email_pemesan: DataTypes.STRING,
     tgl_pemesanan: DataTypes.DATE,

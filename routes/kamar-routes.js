@@ -1,13 +1,16 @@
 const express = require('express')
-const cors = require('cors')
-const bodyParser = require('body-parser')
-const user = require('../controller/user-control')
+const app = express.Router()
 const auth = require('../auth/auth')
 
+const controller = require('../controller/kamar-control')
 
-const app = express()
-app.use(express.json())
-app.use = bodyParser.urlencoded({
-    extended: false
-})
 
+
+
+app.get('/', controller.findAll)
+app.get('/id/:id', controller.findById)
+app.post('', controller.addKamar)
+app.put('/id/:id', controller.update)
+app.delete('/del/:id', controller.delete)
+
+module.exports = app

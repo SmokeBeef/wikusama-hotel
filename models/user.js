@@ -21,7 +21,8 @@ module.exports = (sequelize, DataTypes) => {
     foto: DataTypes.TEXT,
     email: DataTypes.STRING,
     password: DataTypes.TEXT,
-    role: DataTypes.ENUM('admin', 'resepsionis')
+    role: DataTypes.ENUM('admin', 'resepsionis'),
+    refreshToken: DataTypes.TEXT
   }, {
     sequelize,
     modelName: 'user',
